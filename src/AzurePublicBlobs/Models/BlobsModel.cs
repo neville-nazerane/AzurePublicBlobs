@@ -13,7 +13,7 @@ namespace AzurePublicBlobs.Models
     {
 
         [XmlElement(ElementName = "Blob")]
-        public IEnumerable<BlobData> Blobs { get; set; }
+        public List<BlobData> Blobs { get; set; }
 
     }
 
