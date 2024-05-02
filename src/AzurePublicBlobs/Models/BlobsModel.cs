@@ -9,19 +9,19 @@ namespace AzurePublicBlobs.Models
 {
 
 
-    public class Blobs
+    public class BlobsModel
     {
 
         [XmlElement(ElementName = "Blob")]
-        public IEnumerable<BlobData> Blob { get; set; }
+        public IEnumerable<BlobData> Blobs { get; set; }
 
     }
 
-    public class Blobs<TMetadata>
+    public class BlobsModel<TMetadata>
     {
 
         [XmlElement(ElementName = "Blob")]
-        public IEnumerable<BlobData<TMetadata>> Blob { get; set; }
+        public List<BlobData<TMetadata>> Blobs { get; set; }
 
     }
 

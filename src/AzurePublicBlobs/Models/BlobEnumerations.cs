@@ -11,8 +11,9 @@ namespace AzurePublicBlobs.Models
     [XmlRoot(ElementName = "EnumerationResults")]
     public class BlobEnumerations
     {
+
         [XmlElement(ElementName = "Blobs")]
-        public virtual Blobs Blobs { get; set; }
+        public BlobsModel Blobs { get; set; }
 
         [XmlAttribute("ContainerName")]
         public string ContainerName { get; set; }
@@ -23,7 +24,7 @@ namespace AzurePublicBlobs.Models
     {
 
         [XmlElement(ElementName = "Blobs")]
-        public new Blobs<TMetadata> Blobs { get; set; }
+        public new BlobsModel<TMetadata> Blobs { get; set; }
 
     }
 
