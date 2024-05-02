@@ -50,6 +50,8 @@ stages:
 
   - stage: Deploy
     displayName: Deploy to Nuget
+    variables:
+      - group: nugets
 
     jobs:
       
@@ -62,12 +64,14 @@ stages:
           - checkout: none
 
           - script: dotnet nuget push
-                    "$(Pipeline.Workspace)/Packed/*.nupkg"
+                    "*.nupkg"
                     -s https://api.nuget.org/v3/index.json
-                    -k $(ApiKey)
+                    -k $(NugetApiKey)
+            displayName: Nuget push
+            workingDirectory: $(Pipeline.Workspace)/Packed
 
 
-
+            
           # - task: NuGetCommand@2
           #   displayName: Internal nuget upload
           #   inputs:
