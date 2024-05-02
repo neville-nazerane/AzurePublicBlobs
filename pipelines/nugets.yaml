@@ -64,14 +64,18 @@ stages:
           - checkout: none
 
           - script: dotnet nuget push
-                    "*.nupkg"
+                    "*$(Build.BuildNumber).nupkg"
                     -s https://api.nuget.org/v3/index.json
                     -k $(NugetApiKey)
             displayName: Nuget push
             workingDirectory: $(Pipeline.Workspace)/Packed
 
+          - script: rm -rf Packed
+            workingDirectory: $(Pipeline.Workspace)
+            displayName: Clean up
 
-            
+
+
           # - task: NuGetCommand@2
           #   displayName: Internal nuget upload
           #   inputs:
