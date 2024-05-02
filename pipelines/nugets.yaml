@@ -61,10 +61,16 @@ stages:
 
           - checkout: none
 
-          - task: NuGetCommand@2
-            displayName: Internal nuget upload
-            inputs:
-              command: 'push'
-              packagesToPush: '$(Pipeline.Workspace)/Packed/*.nupkg'
-              nuGetFeedType: external
-              publishFeedCredentials: NuGet
+          - script: dotnet nuget push
+                    "$(Pipeline.Workspace)/Packed/*.nupkg"
+                    -k $(ApiKey)
+
+
+
+          # - task: NuGetCommand@2
+          #   displayName: Internal nuget upload
+          #   inputs:
+          #     command: 'push'
+          #     packagesToPush: '$(Pipeline.Workspace)/Packed/*.nupkg'
+          #     nuGetFeedType: external
+          #     publishFeedCredentials: NuGet
