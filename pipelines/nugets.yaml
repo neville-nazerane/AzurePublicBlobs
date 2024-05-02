@@ -1,0 +1,70 @@
+
+pool: hosted-linux
+
+pr: none
+
+trigger:
+  branches:
+    include:
+      - master
+  paths:
+    include:
+      - src/AzurePublicBlobs
+
+
+variables:
+  majorVersion: 0
+  minorVersion: 1
+
+parameters:
+  - name: projectNames
+    type: object
+    default:
+      - AzurePublicBlobs
+  
+
+name: $(majorVersion).$(minorVersion).$(Build.BuildId)
+
+stages:
+
+  - stage: Pack
+    displayName: Pack Nugets
+
+    jobs:
+
+      - job: Build
+
+        steps:
+          
+          - ${{ each project in parameters.projectNames }}:
+            - script: dotnet pack ${{ project }}
+                      -o $(Build.ArtifactStagingDirectory)/packed
+                      -c release
+                      -p:PackageVersion=$(Build.BuildNumber)
+              displayName: Packing ${{ project }}
+              workingDirectory: src
+
+          - publish: $(Build.ArtifactStagingDirectory)/packed
+            displayName: Publish
+            artifact: Packed
+
+  - stage: Deploy
+    displayName: Deploy to Nuget
+
+    jobs:
+      
+      - job: Deploy
+        steps:
+
+          - download: current
+            artifact: Packed
+
+          - checkout: none
+
+          - task: NuGetCommand@2
+            displayName: Internal nuget upload
+            inputs:
+              command: 'push'
+              packagesToPush: '$(Pipeline.Workspace)/Packed/*.nupkg'
+              nuGetFeedType: external
+              publishFeedCredentials: NuGet
