@@ -3,8 +3,13 @@
 	<PropertyGroup>
 		<TargetFramework>net8.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
-			
-		<PackageTags>azure blob;public blobs;azure public blobs;list blobs;list azure blobs</PackageTags>
+
+		<Description>
+			Utility to access azure's blob containers with public listing access to 
+			enumerate all blobs and metadata.
+		</Description>
+		
+		<PackageTags>azure blob container; azure blob;public blobs;azure public blobs;list blobs;list azure blobs</PackageTags>
 	</PropertyGroup>
 
 </Project>
