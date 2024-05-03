@@ -18,6 +18,11 @@ namespace AzurePublicBlobs.Models
         [XmlAttribute("ContainerName")]
         public string ContainerName { get; set; }
 
+        [XmlAttribute("NextMarker")]
+        public string NextMarker { get; set; }
+
+        [XmlAttribute("MaxResults")]
+        public int MaxResults { get; set; }
     }
 
     public class BlobEnumerations<TMetadata> : BlobEnumerations
