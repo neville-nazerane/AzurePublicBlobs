@@ -12,8 +12,11 @@ namespace AzurePublicBlobs.Models
     public class BlobEnumerations
     {
 
+        [XmlIgnore]
+        public IEnumerable<BlobData> Blobs => BlobsInternal?.Blobs;
+
         [XmlElement(ElementName = "Blobs")]
-        public BlobsModel Blobs { get; set; }
+        public BlobsModel BlobsInternal { get; set; }
 
         [XmlAttribute("ContainerName")]
         public string ContainerName { get; set; }
