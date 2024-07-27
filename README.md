@@ -1,7 +1,7 @@
 
 # Access Azure Public blobs
-Utility for api calls 
-Indended to be used by C# client side apps such as maui or blazor apps
+Utility for api calls to public azure blob containers.
+Indended to be used by C# client side apps such as maui or blazor apps.
 
 
 [![Build Status](https://dev.azure.com/nevillenazerane/publishes/_apis/build/status%2Fnugets%2FAzurePublicBlobs%20Nuget?branchName=master)](https://dev.azure.com/nevillenazerane/publishes/_build/latest?definitionId=83&branchName=master)

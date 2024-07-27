@@ -31,8 +31,11 @@ namespace AzurePublicBlobs.Models
     public class BlobEnumerations<TMetadata> : BlobEnumerations
     {
 
+        [XmlIgnore]
+        public new IEnumerable<BlobData<TMetadata>> Blobs => BlobsInternal?.Blobs;
+
         [XmlElement(ElementName = "Blobs")]
-        public new BlobsModel<TMetadata> Blobs { get; set; }
+        public new BlobsModel<TMetadata> BlobsInternal { get; set; }
 
     }
 
