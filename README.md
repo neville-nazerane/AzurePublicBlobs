@@ -7,6 +7,8 @@ Intended to be used by C# client side apps such as maui or blazor apps.
 [![Build Status](https://dev.azure.com/nevillenazerane/publishes/_apis/build/status%2Fnugets%2FAzurePublicBlobs%20Nuget?branchName=master)](https://dev.azure.com/nevillenazerane/publishes/_build/latest?definitionId=83&branchName=master)
 [![NuGet](https://img.shields.io/nuget/v/AzurePublicBlobs.svg)](https://www.nuget.org/packages/AzurePublicBlobs/)
 
+[Click here for Detailed Documentation](https://docs.nevillenazerane.com/documentation/AzurePublicBlobs)
+
 
 ## Quick Start
 
