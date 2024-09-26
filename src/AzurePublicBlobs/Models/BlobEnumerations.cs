@@ -18,13 +18,13 @@ namespace AzurePublicBlobs.Models
         [XmlElement(ElementName = "Blobs")]
         public BlobsModel BlobsInternal { get; set; }
 
-        [XmlAttribute("ContainerName")]
+        [XmlElement("ContainerName")]
         public string ContainerName { get; set; }
 
-        [XmlAttribute("NextMarker")]
+        [XmlElement("NextMarker")]
         public string NextMarker { get; set; }
 
-        [XmlAttribute("MaxResults")]
+        [XmlElement("MaxResults")]
         public int MaxResults { get; set; }
     }
 
